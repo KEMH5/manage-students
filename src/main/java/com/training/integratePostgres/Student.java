@@ -1,15 +1,14 @@
 package com.training.integratePostgres;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "T_STUDENT")
 public class Student {
 
     @Id
+    @GeneratedValue
     private Integer id;
 
     @Column(
@@ -24,6 +23,36 @@ public class Student {
     private String email;
 
     private String lastName;
+
+    @OneToOne(
+            mappedBy = "student",
+            cascade = CascadeType.ALL
+    )
+    private StudentProfile studentProfile;
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
+    }
+
+    @ManyToOne
+    @JoinColumn(
+            name = "school_id"
+    )
+
+    @JsonBackReference//Tell the entity that it doesn't need to serialize the parent
+    private School school;
 
     public Student(
             String firsName,
