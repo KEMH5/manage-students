@@ -1,4 +1,4 @@
-package com.training.integratePostgres;
+package com.training.integratePostgres.student;
 
 public record StudentResponseDto(
         String firsName,

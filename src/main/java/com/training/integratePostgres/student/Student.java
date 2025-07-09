@@ -1,6 +1,8 @@
-package com.training.integratePostgres;
+package com.training.integratePostgres.student;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.training.integratePostgres.school.School;
+import com.training.integratePostgres.studentprofile.StudentProfile;
 import jakarta.persistence.*;
 
 @Entity

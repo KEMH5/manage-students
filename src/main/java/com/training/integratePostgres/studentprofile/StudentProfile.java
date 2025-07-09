@@ -1,5 +1,6 @@
-package com.training.integratePostgres;
+package com.training.integratePostgres.studentprofile;
 
+import com.training.integratePostgres.student.Student;
 import jakarta.persistence.*;
 
 @Entity

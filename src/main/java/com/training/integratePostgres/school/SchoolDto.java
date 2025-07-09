@@ -1,4 +1,4 @@
-package com.training.integratePostgres;
+package com.training.integratePostgres.school;
 
 public record SchoolDto(
         String name

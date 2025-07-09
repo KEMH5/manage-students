@@ -1,5 +1,6 @@
-package com.training.integratePostgres;
+package com.training.integratePostgres.student;
 
+import com.training.integratePostgres.school.School;
 import org.springframework.stereotype.Service;
 
 @Service

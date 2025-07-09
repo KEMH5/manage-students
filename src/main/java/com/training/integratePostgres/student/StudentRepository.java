@@ -1,4 +1,4 @@
-package com.training.integratePostgres;
+package com.training.integratePostgres.student;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
