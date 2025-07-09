@@ -50,7 +50,6 @@ public class Student {
     @JoinColumn(
             name = "school_id"
     )
-
     @JsonBackReference//Tell the entity that it doesn't need to serialize the parent
     private School school;
 

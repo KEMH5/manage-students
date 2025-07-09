@@ -9,40 +9,23 @@ import java.util.stream.Collectors;
 @RestController
 public class SchoolController {
 
-    private final SchoolRepository schoolrepository;
+    private final SchoolService schoolService;
 
-    public SchoolController(SchoolRepository schoolrepository) {
-        this.schoolrepository = schoolrepository;
+    public SchoolController(SchoolService schoolService) {
+        this.schoolService = schoolService;
     }
 
     @PostMapping("/schools")
     public SchoolDto create(
             @RequestBody SchoolDto schooldto
     ){
-        var school = toSchool(schooldto);
-        var savedSchool = schoolrepository.save(school);
-        return schooldto;
+        return this.schoolService.create(schooldto);
     }
 
-    private School toSchool (
-            SchoolDto dto
-    ){
-        return new School(
-                dto.name()
-        );
-    }
-
-    private SchoolDto toSchoolDto(School school){
-        return new SchoolDto(school.getName());
-    }
 
     @GetMapping("/schools")
     public List<SchoolDto> findAllSchool(){
-        return
-                schoolrepository.findAll()
-                .stream()
-                .map(this::toSchoolDto)
-                .collect(Collectors.toList());
+        return this.schoolService.findAllSchool();
     }
 
     @DeleteMapping("/schools/{school-id}")
@@ -52,6 +35,6 @@ public class SchoolController {
             Integer id
     )
     {
-      schoolrepository.deleteById(id);
+      schoolService.delete(id);
     }
 }
