@@ -1,12 +1,14 @@
 package com.training.integratePostgres.student;
 
 import com.training.integratePostgres.school.School;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudentMapper {
 
 
+    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     public Student toStudent(
             StudentDTO dto
     ){
@@ -18,7 +20,7 @@ public class StudentMapper {
         var student = new Student();
         student.setFirsName(dto.firsName());
         student.setLastName(dto.lastName());
-        student.setEmail(dto.email());
+        student.setEmail(encoder.encode(dto.email()));
 
         var school = new School();
         school.setId(dto.schoolId());

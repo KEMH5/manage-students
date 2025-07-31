@@ -1,5 +1,6 @@
 package com.training.integratePostgres.student;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.stream.Collectors;
 public class StudentService {
     private final StudentRepository repository;
     private final StudentMapper studentMapper;
+    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(15);
 
     public StudentService(StudentRepository repository, StudentMapper studentMapper) {
         this.repository = repository;

@@ -2,6 +2,8 @@ package com.training.integratePostgres;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @SpringBootApplication
 public class IntegratePostgresApplication {

@@ -8,4 +8,6 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     List<Student> findAllByFirsNameContaining(String firsname);
 
+    Student findByEmail(String email);
+
 }

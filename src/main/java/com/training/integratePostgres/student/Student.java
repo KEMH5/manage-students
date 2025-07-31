@@ -10,7 +10,9 @@ import jakarta.persistence.*;
 public class Student {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private Integer id;
 
     @Column(
