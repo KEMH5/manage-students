@@ -21,7 +21,6 @@ public class SchoolController {
         return this.schoolService.create(schooldto);
     }
 
-
     @GetMapping("/schools")
     public List<SchoolDto> findAllSchool(){
         return this.schoolService.findAllSchool();

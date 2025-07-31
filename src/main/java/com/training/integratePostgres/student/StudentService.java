@@ -23,7 +23,6 @@ public class StudentService {
         return studentMapper.tostudentResponseDto(savedStudent);
     }
 
-
     public List<StudentResponseDto> findAllStudents()
     {
         return repository.findAll()
